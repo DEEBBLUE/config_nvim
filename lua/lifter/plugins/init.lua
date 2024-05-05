@@ -1,5 +1,5 @@
 return{
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter-context',
-    'nvim-web-devicons',
+    'nvim-tree/nvim-web-devicons',
 }
