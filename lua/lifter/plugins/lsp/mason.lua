@@ -10,7 +10,9 @@ return {
       ensure_installed = {
         'pyright',
         'bashls',
-        'rust_analyzer'
+        'rust_analyzer',
+        'ts_ls',
+        'clangd'
       },
       automatic_installation = true
     })

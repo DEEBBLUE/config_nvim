@@ -1,5 +1,8 @@
 return{
-    'nvim-lua/plenary.nvim',
-    'nvim-treesitter/nvim-treesitter-context',
-    'nvim-tree/nvim-web-devicons',
+  "nvim-lua/plenary.nvim",
+  "nvim-treesitter/nvim-treesitter",
+  'neovim/nvim-lspconfig',
+  'jose-elias-alvarez/null-ls.nvim',
+  'MunifTanjim/prettier.nvim',
+  "nvim-telescope/telescope.nvim"
 }

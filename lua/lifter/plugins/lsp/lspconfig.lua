@@ -28,45 +28,11 @@ return {
       opts.desc = "Go to declaration"
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
-      opts.desc = "Show LSP definitions"
-      vim.keymap.set("n", "gd", builtin.lsp_definitions, opts) -- show lsp definitions
-
       opts.desc = "Show LSP implementations"
       vim.keymap.set("n", "gi", builtin.lsp_implementations, opts) -- show lsp implementations
 
-      opts.desc = "Show LSP type definitions"
-      vim.keymap.set("n", "gt", builtin.lsp_type_definitions, opts) -- show lsp type definitions
-
       opts.desc = "See available code actions"
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
-
-      opts.desc = "Smart rename"
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
-      opts.desc = "Show buffer diagnostics"
-      vim.keymap.set("n", "<leader>D", builtin.diagnostics, opts) -- show  diagnostics for file
-
-      opts.desc = "Show line diagnostics"
-      vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
-
-      opts.desc = "Prev diagnostic"
-      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
-
-      opts.desc = "Next diagnostic"
-      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
-
-      opts.desc = "Next error"
-      vim.keymap.set("n", "]e", diagnostic_goto(true, "ERROR"), opts)
-
-      opts.desc = "Prev error"
-      vim.keymap.set("n", "[e", diagnostic_goto(false, "ERROR"), opts)
-
-      opts.desc = "Next warning"
-      vim.keymap.set("n", "]w", diagnostic_goto(true, "WARN"), opts)
-
-      opts.desc = "Prev warning"
-      vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), opts)
-
       opts.desc = "Show documentation for what is under cursor"
       vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
@@ -99,7 +65,14 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    lspconfig["tsserver"].setup({
+
+    lspconfig["ts_ls"].setup({
+      on_attach = on_attach,
+      filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+      cmd = { "typescript-language-server", "--stdio" }
+    })
+
+    lspconfig["clangd"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
