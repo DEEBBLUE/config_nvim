@@ -4,6 +4,7 @@ return {
     'williamboman/mason-lspconfig.nvim',
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
+
   config = function ()
     require('mason').setup()
     require('mason-lspconfig').setup({
@@ -12,7 +13,8 @@ return {
         'bashls',
         'rust_analyzer',
         'ts_ls',
-        'clangd'
+        'clangd',
+        'gopls'
       },
       automatic_installation = true
     })
